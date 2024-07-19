@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
 import br.com.appflix.login.controller.LoginController;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class LoginView {
 
@@ -160,6 +162,12 @@ public class LoginView {
 		panelLogin_Full.add(LabelLogin_Year);
 		
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+		});
 		lblNewLabel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		lblNewLabel.setIcon(new ImageIcon(LoginView.class.getResource("/resources/img/on-off-button.png")));
 		lblNewLabel.setBounds(263, 186, 25, 23);
