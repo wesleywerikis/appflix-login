@@ -1,19 +1,24 @@
 package br.com.appflix.login.view;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
-import javax.swing.ImageIcon;
-import java.awt.Cursor;
+
+import br.com.appflix.login.controller.LoginController;
 
 public class LoginView {
 
@@ -103,23 +108,23 @@ public class LoginView {
 		btnLogin_LoginView = new JButton("Login");
 		btnLogin_LoginView.setForeground(new Color(177, 187, 194));
 		btnLogin_LoginView.setBounds(85, 186, 171, 23);
-//		btnLogin_LoginView.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				String username = textFieldLogin_Username.getText();
-//				String password = new String(passwordFieldLogin_Password.getPassword());
-//
-//				LoginController loginController = new LoginController();
-//				if (loginController.authenticate(username, password)) {
-//					System.out.println("Logado com sucesso!");
-//				} else {
-//					JOptionPane.showMessageDialog(frameLogin, "Usuário ou senha inválidos!", "Erro",
-//							JOptionPane.ERROR_MESSAGE);
-//					System.out.println("Usuário ou senha inválidos!");
-//					clearFieldsLogin();
-//				}
-//			}
-//
-//		});
+		btnLogin_LoginView.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = textFieldLogin_Username.getText();
+				String password = new String(passwordFieldLogin_Password.getPassword());
+
+				LoginController loginController = new LoginController();
+				if (loginController.authenticate(username, password)) {
+					System.out.println("Logado com sucesso!");
+				} else {
+					JOptionPane.showMessageDialog(frameLogin, "Usuário ou senha inválidos!", "Erro",
+							JOptionPane.ERROR_MESSAGE);
+					System.out.println("Usuário ou senha inválidos!");
+					clearFieldsLogin();
+				}
+			}
+
+		});
 		btnLogin_LoginView.setFont(new Font("Yu Gothic UI Semibold", Font.PLAIN, 11));
 		btnLogin_LoginView.setBackground(new Color(57, 62, 70));
 		btnLogin_LoginView.setFocusable(false);
