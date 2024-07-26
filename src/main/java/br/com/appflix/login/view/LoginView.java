@@ -19,6 +19,8 @@ import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
 
 import br.com.appflix.login.controller.LoginController;
+import br.com.appflix.menu.view.MenuView;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -118,6 +120,9 @@ public class LoginView {
 				LoginController loginController = new LoginController();
 				if (loginController.authenticate(username, password)) {
 					System.out.println("Logado com sucesso!");
+					frameLogin.dispose();
+					MenuView.main(null);
+					
 				} else {
 					JOptionPane.showMessageDialog(frameLogin, "Usuário ou senha inválidos!", "Erro",
 							JOptionPane.ERROR_MESSAGE);
